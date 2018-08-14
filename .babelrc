@@ -1,6 +1,5 @@
 {
   "presets": [
-    "react",
     [
       "env",
       {
@@ -14,11 +13,11 @@
         "modules": false,
         "useBuiltIns": true
       }
-    ]
+    ],
+    "react",
+    "stage-0"
   ],
   "plugins": [
-    "syntax-dynamic-import",
-    "react-hot-loader/babel",
-    "transform-object-rest-spread"
+    "react-hot-loader/babel"
   ]
 }
