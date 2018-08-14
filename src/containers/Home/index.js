@@ -1,6 +1,5 @@
-import 'sanitize.css';
-import '../../styles/base.scss';
-
+import 'styles/base.scss';
+import 'utils/polyfills.js';
 import React from 'react';
 import ReactDom from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
