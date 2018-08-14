@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { hot } from 'react-hot-loader';
 import Todo from 'components/Todo';
 import style from './home.scss';
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
   }
@@ -16,3 +17,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default hot(module)(App);
