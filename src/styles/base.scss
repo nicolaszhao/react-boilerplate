@@ -1,3 +1,5 @@
+@import "~sanitize.css";
+
 body {
   overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
@@ -11,6 +13,7 @@ a {
 
 button {
   outline: none;
+  user-select: none;
 }
 
 .container {
