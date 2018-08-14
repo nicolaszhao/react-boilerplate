@@ -1,8 +1,5 @@
-const path = require('path');
-const cheese = require('webpack-config-cheese');
-const { name, description } = require('./package.json');
+const zeroConfig = require('webpack-config-zero');
 
-module.exports = cheese.buildConfig({
-  spa: false,
-  libChunks: ['react', 'react-dom']
+module.exports = zeroConfig({
+  spa: false
 });
