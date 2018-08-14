@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
-import Todo from 'components/Todo';
 import style from './about.scss';
 
 class App extends Component {
@@ -10,9 +9,8 @@ class App extends Component {
   
   render() {
     return (
-      <div className={style.container}>
-        <h1>About</h1>
-        <Todo />
+      <div className="container">
+        <h1 className={style.title}>About</h1>
       </div>
     );
   }
