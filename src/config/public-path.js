@@ -1,1 +1,1 @@
-__webpack_public_path__ = window.__static_public_path__ || '/';
+__webpack_public_path__ = process.env.RUNTIME_PUBLIC_PATH;
