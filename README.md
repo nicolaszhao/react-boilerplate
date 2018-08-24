@@ -1,4 +1,6 @@
-# React 多页项目工程脚手架
+# {{name}}
+
+{{description}}
 
 ## 内置功能
 
