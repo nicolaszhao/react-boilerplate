@@ -1,6 +1,7 @@
 @keyframes loading {
   40% {
     transform: scale(1);
+    transition-timing-function: cubic-bezier(.35,1.2,.51,1.32);
   }
   80% {
     transform: scale(0);
@@ -38,7 +39,7 @@
     border-radius: 50%;
     background: rgba(0, 0, 0, .5);
     transform: scale(0);
-    animation: loading 1.5s ease-in-out infinite;
+    animation: loading 1.8s ease infinite;
   }
 
   span {
