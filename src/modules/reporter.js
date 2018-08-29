@@ -1,4 +1,4 @@
-import report from 'utils/report';
+const report = (data) => {};
 
 let reporter = {
   test() {
