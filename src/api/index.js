@@ -1,6 +1,15 @@
-import http from 'tote-box/lib/http';
-import { USER_INFO } from './urls';
+import { axiosRequest as request } from 'tote-box';
+import { USER } from './urls';
+import mock from './mock';
 
-export function getUserInfo() {
-  return http.get(USER_INFO);
+const req = request({
+  timeout: 5000
+});
+
+export function getUser() {
+  return req.get(USER);
+}
+
+if (process.env.NODE_ENV === 'development') {
+  mock();  
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import Loading from 'components/Loading';
+import * as api from 'api'; 
 import style from './home.scss';
 
 class App extends Component {
@@ -13,7 +14,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => this.setState({ loading: false }), 1000);
+    api.getUser()
+      .then(data => console.log(data))
+      .catch(err => console.log(err))
+      .then(() => this.setState({ loading: false }));
   }
   
   render() {
