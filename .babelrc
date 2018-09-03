@@ -14,8 +14,8 @@
         "useBuiltIns": true
       }
     ],
-    "react",
-    "stage-0"
+    "stage-0",
+    "react"
   ],
   "plugins": [
     "react-hot-loader/babel",
