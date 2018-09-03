@@ -52,6 +52,7 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
     "lodash": "^4.17.4",
@@ -61,7 +62,7 @@
     "react-tote-box": "^0.1.5",
     "react-transition-group": "^2.4.0",
     "sanitize.css": "^6.0.0",
-    "tote-box": "^0.9.0",
+    "tote-box": "^0.9.1",
     "urijs": "^1.18.2",
     "whatwg-fetch": "^2.0.4"
   },
