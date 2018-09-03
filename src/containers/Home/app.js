@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
-import Loading from 'components/Loading';
+import { Loading } from 'react-tote-box';
+import Example from 'components/Example';
 import * as api from 'api'; 
 import style from './home.scss';
 
@@ -23,7 +24,12 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h1 className={style.title}>Home</h1>
+        <header className={style.header}>
+          <h1>Home</h1>
+        </header>
+        <section className={style.content}>
+          <Example />
+        </section>
         <Loading visible={this.state.loading} />
       </div>
     );
