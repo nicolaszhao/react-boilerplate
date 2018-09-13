@@ -10,11 +10,13 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loading: true
+      loading: false
     };
   }
 
   componentDidMount() {
+    this.setState({ loading: true });
+    
     api.getUser()
       .then(data => console.log(data))
       .catch(err => console.log(err))
