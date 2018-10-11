@@ -12,7 +12,7 @@
 * [x] px2rem + flexible.js 修复版（需单独启用，见底下的说明） ，参考 [postcss-px2rem](https://www.npmjs.com/package/postcss-px2rem), [px2rem](https://www.npmjs.com/package/px2rem)
 * [x] Autoprefixer
 * [x] [react-hot-loader](https://www.npmjs.com/package/react-hot-loader)
-* [x] webpack v4.0（已用 [webpack-config-zero](https://www.npmjs.com/package/webpack-config-zero) 封装成配置器）
+* [x] webpack v4.0+（已用 [webpack-config-zero](https://www.npmjs.com/package/webpack-config-zero) 封装成配置器）
 * [x] 代码提交 ESLint 自动审查
 
 ### 其他已包含的主要模块
