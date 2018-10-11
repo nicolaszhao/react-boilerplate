@@ -1,9 +1,28 @@
+.container {
+  padding: 1em;
+}
+
 .header {
-  padding: 20px;
-  color: #abc;
-  border-bottom: dotted 2px #ccc; /* px */
+  margin-bottom: 1.2em;
 }
 
 .content {
-  padding: 25px;
+  dt {
+    margin-bottom: 0.2em;
+    font-size: 1.4rem;
+    text-transform: capitalize;
+
+    &:after {
+      content: ': ';
+    }
+  }
+
+  dd {
+    margin-bottom: 1em;
+  }
+}
+
+.error {
+  padding: 1em 0;
+  color: #f00;
 }

@@ -1,5 +1,17 @@
+.container {
+  padding: 1em;  
+}
+
 .header {
-  padding: 20px;
-  color: #def;
-  border-bottom: dotted 2px #ccc; /* px */
+  margin-bottom: 1.2em;
+}
+
+.content {
+  a {
+    text-decoration: underline;
+
+    &:after {
+      content: ' >';
+    }
+  }
 }

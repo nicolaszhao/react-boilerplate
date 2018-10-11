@@ -9,10 +9,13 @@ class App extends Component {
   
   render() {
     return (
-      <div className="container">
+      <div className={style.container}>
         <header className={style.header}>
           <h1>About</h1>
         </header>
+        <section className={style.content}>
+          <a href="./">Home</a>
+        </section>
       </div>
     );
   }
