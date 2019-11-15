@@ -1,6 +1,6 @@
 {
-  "name": "react-map-boilerplate",
-  "version": "0.1.0",
+  "name": "nicolaz-react-boilerplate",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "hammal-cli-service start",
