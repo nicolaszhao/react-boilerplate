@@ -7,6 +7,9 @@ h1 {
 }
 
 .content {
+  position: relative;
+  min-height: 5em;
+
   .profile {
     color: rgba(0, 0, 0, .8);
   }
@@ -39,7 +42,14 @@ footer {
 }
 
 .loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   font-size: 1.5rem;
+  background: hsla(0, 0%, 100%, .6);
 }
 
 .error {
@@ -48,6 +58,10 @@ footer {
   border-radius: .4em;
   background: #fcfabe;
   color: #e41f0c;
+
+  &::before {
+    content: 'Error: '
+  }
 }
 
 .button {

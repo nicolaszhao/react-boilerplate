@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hot } from 'react-hot-loader/root';
-import { delayTask } from '@totebox/util';
 import * as api from '../../api';
 import style from './index.module.scss';
 
@@ -21,40 +20,26 @@ class App extends Component {
   }
 
   async fetchUser() {
-    const clearLoadingTask = delayTask(() => this.setState({ loading: true }));
-
-    this.setState({ error: null });
+    this.setState({ loading: true });
 
     try {
       const data = await api.fetchUser();
-      this.setState({ data });
+      this.setState({ data, error: null });
     } catch (error) {
       this.setState({ error });
     }
 
-    if (!clearLoadingTask()) {
-      this.setState({ loading: false });
-    }
+    this.setState({ loading: false });
   }
 
   render() {
-    const {
-      loading,
-      data,
-      error,
-    } = this.state;
+    const { loading, data, error } = this.state;
 
     return (
       <div className={style.container}>
         <h1>Home</h1>
         <section className={style.content}>
           {loading && <span className={style.loading}>Loading...</span>}
-          {error && (
-            <p className={style.error}>
-              Error:
-              {error.message}
-            </p>
-          )}
           {data && (
             <dl className={style.profile}>
               {Object.keys(data).map((field, i) => (
@@ -64,6 +49,11 @@ class App extends Component {
                 </React.Fragment>
               ))}
             </dl>
+          )}
+          {error && (
+            <p className={style.error}>
+              {error.message}
+            </p>
           )}
         </section>
         <footer>
