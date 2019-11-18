@@ -6,7 +6,7 @@ import './index.scss';
 function App() {
   return (
     <div className="container">
-      <h1>About.</h1>
+      <h1>About</h1>
       <section>
         <p>This is a react multi-page boilerplate.</p>
         <a className="button" href="./">Back to Home</a>

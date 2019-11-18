@@ -44,7 +44,7 @@ class App extends Component {
 
     return (
       <div className={style.container}>
-        <h1>Home.</h1>
+        <h1>Home</h1>
         <section className={style.content}>
           {loading && <span className={style.loading}>Loading...</span>}
           {error && (
