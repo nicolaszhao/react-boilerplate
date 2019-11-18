@@ -46,8 +46,13 @@ class App extends Component {
       <div className={style.container}>
         <h1>Home</h1>
         <section className={style.content}>
-          {loading && <span>Loading...</span>}
-          {error && <p className={style.error}>{error.message}</p>}
+          {loading && <span className={style.loading}>Loading...</span>}
+          {error && (
+            <p className={style.error}>
+              Error:
+              {error.message}
+            </p>
+          )}
           {data && (
             <dl className={style.profile}>
               {Object.keys(data).map((field, i) => (
