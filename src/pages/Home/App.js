@@ -22,10 +22,11 @@ class App extends Component {
 
   async fetchUser() {
     this.clearLoadingTask = delayTask(() => this.setState({ loading: true }));
+    this.setState({ error: null });
 
     try {
       const data = await api.fetchUser();
-      this.setState({ data, error: null });
+      this.setState({ data });
     } catch (error) {
       this.setState({ error });
     }
