@@ -21,7 +21,8 @@ class App extends Component {
   }
 
   async fetchUser() {
-    this.clearLoadingTask = delayTask(() => this.setState({ loading: true }));
+    const clearLoadingTask = delayTask(() => this.setState({ loading: true }));
+
     this.setState({ error: null });
 
     try {
@@ -31,7 +32,7 @@ class App extends Component {
       this.setState({ error });
     }
 
-    if (!this.clearLoadingTask()) {
+    if (!clearLoadingTask()) {
       this.setState({ loading: false });
     }
   }
