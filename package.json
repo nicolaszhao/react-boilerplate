@@ -19,7 +19,7 @@
     "@hammal/cli-service": "^0.12.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.0.0",
-    "eslint-config-nicolaz": "^0.5.4",
+    "eslint-config-nicolaz": "^0.6.3",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
