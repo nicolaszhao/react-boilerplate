@@ -1,80 +1,104 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hot } from 'react-hot-loader/root';
 import * as api from '../../api';
+import Wrapper from '../../components/Wrapper';
 import style from './index.module.scss';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const userFetchReducer = (state, { type, payload }) => {
+  switch (type) {
+    case 'FETCH_USER':
+      return { ...state, fetching: true };
+    case 'FETCH_USER_SUCCESS':
+      return {
+        ...state,
+        fetching: false,
+        data: payload,
+        error: null,
+      };
+    case 'FETCH_USER_FAILURE':
+      return {
+        ...state,
+        fetching: false,
+        error: payload,
+      };
+    default:
+      throw new Error();
+  }
+};
 
-    this.state = {
-      loading: false,
-      data: null,
-      error: null,
+const useUserFetch = (userId) => {
+  const [state, dispatch] = useReducer(userFetchReducer, {
+    fetching: false,
+    data: {},
+    error: null,
+  });
+
+  useEffect(() => {
+    let didCancel = false;
+
+    const fetchUser = async () => {
+      dispatch({ type: 'FETCH_USER' });
+      try {
+        const data = await api.fetchUser();
+        !didCancel && dispatch({ type: 'FETCH_USER_SUCCESS', payload: data });
+      } catch (err) {
+        !didCancel && dispatch({ type: 'FETCH_USER_FAILURE', payload: err });
+      }
     };
-  }
 
-  componentDidMount() {
-    this.fetchUser();
-  }
+    fetchUser();
 
-  async fetchUser() {
-    this.setState({ loading: true });
+    return () => {
+      didCancel = true;
+    };
+  }, [userId]);
 
-    try {
-      const data = await api.fetchUser();
-      this.setState({ data, error: null });
-    } catch (error) {
-      this.setState({ error });
-    }
+  return state;
+};
 
-    this.setState({ loading: false });
-  }
+const genUserId = () => Math.ceil(Math.random() * 100);
 
-  render() {
-    const { loading, data, error } = this.state;
+const App = () => {
+  const [userId, setUserId] = useState(genUserId());
+  const { fetching, data, error } = useUserFetch(userId);
 
-    return (
+  return (
+    <Wrapper currentPage="home">
       <div className={style.container}>
-        <h1>Home</h1>
-        <section className={style.content}>
-          {loading && <span className={style.loading}>Loading...</span>}
-          {data && (
-            <dl className={style.profile}>
-              {Object.keys(data).map((field, i) => (
-                <React.Fragment key={`${i + 1}`}>
-                  <dt>{field}</dt>
-                  <dd>{data[field]}</dd>
-                </React.Fragment>
-              ))}
-            </dl>
-          )}
+        <h2>Home</h2>
+        <div className={style.profile}>
+          {fetching && <span className="loading">Loading...</span>}
+          <dl>
+            {Object.keys(data).map((field) => (
+              <React.Fragment key={field}>
+                <dt>
+                  {field}
+                  :
+                </dt>
+                <dd>{data[field]}</dd>
+              </React.Fragment>
+            ))}
+          </dl>
           {error && (
             <p className={style.error}>
+              <strong>Error:</strong>
               {error.message}
             </p>
           )}
-        </section>
-        <footer>
-          <ul>
-            <li>
-              <button
-                type="button"
-                className={style.button}
-                onClick={() => this.fetchUser()}
-              >
-                Refresh
-              </button>
-            </li>
-            <li>
-              <a className={style.link} href="./about.html">to About</a>
-            </li>
-          </ul>
-        </footer>
+          <footer className={style['profile-footer']}>
+            <button
+              type="button"
+              className="button"
+              onClick={() => setUserId(genUserId())}
+            >
+              Refresh
+            </button>
+          </footer>
+        </div>
       </div>
-    );
-  }
-}
+    </Wrapper>
+  );
+};
 
 export default hot(App);

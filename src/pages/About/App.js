@@ -1,17 +1,14 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hot } from 'react-hot-loader/root';
-import './index.scss';
+import Wrapper from '../../components/Wrapper';
 
 function App() {
   return (
-    <div className="container">
-      <h1>About</h1>
-      <section>
-        <p>This is a react multi-page boilerplate.</p>
-        <a className="button" href="./">Back to Home</a>
-      </section>
-    </div>
+    <Wrapper currentPage="about">
+      <h2>About</h2>
+      <p>This is a React Multi-Page Application boilerplate.</p>
+    </Wrapper>
   );
 }
 
