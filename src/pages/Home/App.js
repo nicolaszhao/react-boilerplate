@@ -3,7 +3,7 @@ import React, { useState, useEffect, useReducer } from 'react';
 import { hot } from 'react-hot-loader/root';
 import * as api from '../../api';
 import Wrapper from '../../components/Wrapper';
-import style from './index.module.scss';
+import style from './app.module.scss';
 
 const userFetchReducer = (state, { type, payload }) => {
   switch (type) {
